@@ -9,4 +9,5 @@ def post_list(request):
 
 def post_detail(request,pk):
     post = BlogPost.objects.get(pk=pk)
-    return render("post_detail.html", {"detailed_post": post},)
+    return render(request, "post_details.html", {"detailed_post": post},)
+    

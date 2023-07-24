@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Detail</title>
+</head>
+
+<body>
+    
+    <div class="post">
+       
+        <h1><a href="">{{detailed_post.title}}</a></h1>
+    </div>
+    <p class=""> {{detailed_post.text}}</p>
+    <br>
+    {% if detailed_post.published_date %}
+    <div class="date">
+        {{detailed_post.published_date}}
+    </div>
+    {% endif %}
+</body>
+
+</html>

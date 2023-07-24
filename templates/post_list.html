@@ -11,9 +11,9 @@
 
     {% for post in all_posts %}
     <div class="post">
-        <h1><a href="">{{post.title}}</a></h1>
+        <h1><a href="blog_detail/{{post.pk}}">{{post.title}}</a></h1>
     </div>
-    <p class="something"> {{post.text | truncatechars:100}} </p>
+    <p class=""> {{post.text | truncatechars:100}} </p>
     <br>
     {% if post.published_date %}
     <div class="date">
