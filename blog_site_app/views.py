@@ -11,3 +11,8 @@ def post_detail(request,pk):
     post = BlogPost.objects.get(pk=pk)
     return render(request, "post_details.html", {"detailed_post": post},)
     
+def post_add(request):
+    if request.method == "POST":
+        print(request.POST)
+    else:
+        return render(request, "post_add.html",)
