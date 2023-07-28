@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from blog_site_app.models import BlogPost
+from django.http import HttpResponseRedirect
+from .forms import PostForm
 
 # Create your views here.
 
@@ -11,8 +13,12 @@ def post_detail(request,pk):
     post = BlogPost.objects.get(pk=pk)
     return render(request, "post_details.html", {"detailed_post": post},)
     
-def post_add(request):
+def post_add(request):    
     if request.method == "POST":
-        print(request.POST)
+        form = PostForm(request.POST)
+        if form.is_valid():
+            form.save()        
+        return HttpResponseRedirect("/")
     else:
-        return render(request, "post_add.html",)
+        form = PostForm()
+        return render(request, "post_add.html", {'form': form})
