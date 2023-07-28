@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content%}
+
+
+
+
+{% for draft in drafts_list %}
+
+<div class="post">
+    
+    <h1><a  href="blog_detail/{{post.pk}}">{{draft.title}}</a></h1>
+</div>
+<p class=""> {{draft.text | truncatechars:100}} </p>
+<p class="date">created: {{draft.created_at}}</p>
+<br>
+{% endfor %}
+
+
+
+{% endblock %}

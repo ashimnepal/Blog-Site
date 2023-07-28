@@ -28,28 +28,43 @@
   </head>
   <body>
     <div class="container-fluid nav navbar">
-         <h1 class="container"><a href="/">Personal Blog</a>
-          <a href="/blog_add/" class="top-menu">
+         <h1 class="container"><a href="/">Personal Blog</a></h1>
+         <!-- Hello{{user.username}} -->
+
+         {% if user.is_authenticated %}
+         
+         <div class="containter">
+          <a href="/blog_add/" class="top-menu">            
             <span class="material-symbols-outlined">
               add
-              </span></a>
-              <a href="">
+              </span>
+            </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="/drafts-list/">
               <span class="material-symbols-outlined">
                 drafts
                 </span>
+              </a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+              <a href=""><span class="material-symbols-outlined">
+                logout
+                </span>
               </a>
-              <a href="">          
-          <span class="material-symbols-outlined">
-            login                     
-          </span>
-        </a>
-       </h1>
-       
-       
+                {% else %}
+                <a href="">          
+                    <span class="material-symbols-outlined">
+                        login                     
+                    </span>
+                  </a>
+         &nbsp;&nbsp;&nbsp;&nbsp;
+         </div>      
+        {% endif %}    
     </div>
+
+
+
     <div class="container content">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 {% block content %}
                 {% endblock %}
             </div>

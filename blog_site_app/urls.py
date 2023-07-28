@@ -22,4 +22,5 @@ urlpatterns = [
     path("", views.post_list),
     path("blog_detail/<int:pk>/", views.post_detail),
     path("blog_add/", views.post_add),
+    path("drafts-list/", views.post_draft),
 ]
