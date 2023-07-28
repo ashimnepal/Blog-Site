@@ -8,23 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Blog site</title>
     <link href="{% static 'css/bootstrap.min.css'%}" rel="stylesheet">
+    <link href="{% static 'css/style.css'%}" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/googlefontapi.css' %}" />
     <link href="{% static 'css/google_font_api_main.css' %}" rel="stylesheet">
-    <style>
-      h1 a
-      {
-        text-decoration: none;
-      }
-
-      h1 a:hover
-      {
-        text-decoration: underline;
-      }
-      p
-      {
-        text-align: justify;
-      }
-    </style>
+   
   </head>
   <body>
     <div class="container-fluid nav navbar">
@@ -33,29 +20,29 @@
 
          {% if user.is_authenticated %}
          
-         <div class="containter">
+         <div class="containter ">
           <a href="/blog_add/" class="top-menu">            
-            <span class="material-symbols-outlined">
+            <span class="material-symbols-outlined logos">
               add
               </span>
-            </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </a>
               <a href="/drafts-list/">
-              <span class="material-symbols-outlined">
+              <span class="material-symbols-outlined logos">
                 drafts
                 </span>
-              </a>&nbsp;&nbsp;&nbsp;&nbsp;
+              </a>
 
-              <a href=""><span class="material-symbols-outlined">
+              <a href=""><span class="material-symbols-outlined logos">
                 logout
                 </span>
               </a>
                 {% else %}
                 <a href="">          
-                    <span class="material-symbols-outlined">
+                    <span class="material-symbols-outlined logos">
                         login                     
                     </span>
                   </a>
-         &nbsp;&nbsp;&nbsp;&nbsp;
+        
          </div>      
         {% endif %}    
     </div>
