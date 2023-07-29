@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404,redirect
 from blog_site_app.models import BlogPost
 from django.http import HttpResponseRedirect
 from .forms import PostForm
@@ -31,3 +31,26 @@ def post_add(request):
 def post_draft(request):
     drafts = BlogPost.objects.filter(published_date__isnull=True).order_by("-date")
     return render(request, "draft_list.html", {"drafts_list" : drafts})
+
+def draft_detail(request,pk):
+    # post = BlogPost.objects.get(pk=pk)
+    post = get_object_or_404(BlogPost, pk=pk)
+    return render(request, "draft_detail.html", {"draft_detailed": post},)
+
+def post_delete(request, pk):
+    post = get_object_or_404(BlogPost, pk=pk)
+    post.delete()
+    return HttpResponseRedirect("/")
+    
+def post_edit(request,pk):    
+    post = get_object_or_404(BlogPost, pk=pk)
+    if request.method == "POST":
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()       
+        return HttpResponseRedirect("/drafts-list/")
+    else:
+        form = PostForm(instance=post)
+        return render(request, "post_edit.html", {'form': form})

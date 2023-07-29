@@ -2,17 +2,14 @@
 
 {% block content%}
 
-
-
-
 {% for draft in drafts_list %}
 
 <div class="post">
     
-    <h1><a  href="blog_detail/{{post.pk}}">{{draft.title}}</a></h1>
+    <h1><a  href="/draft-detail/{{draft.pk}}">{{draft.title}}</a></h1>
 </div>
 <p class=""> {{draft.text | truncatechars:100}} </p>
-<p class="date">created: {{draft.created_at}}</p>
+<p class="date">created: {{draft.date}}</p>
 <br>
 {% endfor %}
 

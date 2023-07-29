@@ -4,23 +4,23 @@
  
 <div class="post">
        
-    <h1>{{detailed_post.title}}</h1>
+    <h1>{{draft_detailed.title}}</h1>
 </div>
 {% if user.is_authenticated %}
-   <a href="/post-edit/{{detailed_post.pk}}"> <span class="material-symbols-outlined">
+   <a href="/post-edit/{{draft_detailed.pk}}"> <span class="material-symbols-outlined">
     edit
     </span></a>
     &nbsp;  	&nbsp; 	&nbsp; 	&nbsp;  
-    <a href="/post-delete/{{detailed_post.pk}}">
+    <a href="/post-delete/{{draft_detailed.pk}}">
         <span class="material-symbols-outlined">
             delete
         </span>
     </a>
 {% endif %}
-<p> {{detailed_post.text | linebreaks}}</p>
-{% if detailed_post.published_date %}
+<p> {{draft_detailed.text | linebreaks}}</p>
+{% if draft_detailed.published_date %}
 <div class="date">
-    {{detailed_post.published_date}}
+    {{draft_detailed.published_date}}
 </div>
 {% else %}
 <a href="" class="btn btn-primary">Publish</a>
