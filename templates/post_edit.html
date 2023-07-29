@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<form action="/post-edit/{{post.pk}}" method="post" class="post-form">
+<form action="/post-edit/{{post.pk}}/" method="post" class="post-form">
     {% csrf_token %}
     {{form.as_p}}
     <!-- <label for="title">Title</label>

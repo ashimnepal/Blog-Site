@@ -42,15 +42,15 @@ def post_delete(request, pk):
     post.delete()
     return HttpResponseRedirect("/")
     
-def post_edit(request,pk):    
+def post_edit(request, pk):    
     post = get_object_or_404(BlogPost, pk=pk)
     if request.method == "POST":
         form = PostForm(request.POST, instance=post)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
-            post.save()       
-        return HttpResponseRedirect("/drafts-list/")
+            post.save()
+            return HttpResponseRedirect("/drafts-list/")  # Redirect to a different URL after saving the changes
     else:
         form = PostForm(instance=post)
-        return render(request, "post_edit.html", {'form': form})
+    return render(request, "post_edit.html", {"form": form, "post":post},)
