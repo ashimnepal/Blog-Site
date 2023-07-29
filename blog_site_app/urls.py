@@ -20,11 +20,11 @@ from blog_site_app import views
 
 urlpatterns = [
     path("", views.post_list),
-    path("post-detail/<int:pk>/", views.post_detail),
-    path("draft-detail/<int:pk>/", views.draft_detail),
-    path("blog_add/", views.post_add),
-    path("drafts-list/", views.post_draft),
-    path("post-delete/<int:pk>/", views.post_delete),
-    path("post-edit/<int:pk>/", views.post_edit),
+    path("post-detail/<int:pk>/", views.post_detail, name="post-detail"), #name bhanera haleko chai attribute ho hai
+    path("draft-detail/<int:pk>/", views.draft_detail, name="draft-detail"), #name is there so that it is easy to create url
+    path("post-add/", views.post_add, name="post-add"),
+    path("drafts-list/", views.post_draft, name="drafts-list"),
+    path("post-delete/<int:pk>/", views.post_delete, name="post-delete"),
+    path("post-edit/<int:pk>/", views.post_edit, name="post-edit"),
     
 ]

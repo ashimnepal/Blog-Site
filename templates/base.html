@@ -21,7 +21,7 @@
          {% if user.is_authenticated %}
          
          <div class="containter ">
-          <a href="/blog_add/" class="top-menu">            
+          <a href="/post-add/" class="top-menu">            
             <span class="material-symbols-outlined logos">
               add
               </span>
@@ -37,7 +37,7 @@
                 </span>
               </a>
                 {% else %}
-                <a href="">          
+                <a href="{% url 'login' %}">          
                     <span class="material-symbols-outlined logos">
                         login                     
                     </span>
